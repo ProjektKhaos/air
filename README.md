@@ -1,5 +1,7 @@
 # Chiang Mai Air Watch
 
+![Chiang Mai Air Watch — track the air quality in Mueang Chiang Mai](fb_og.png)
+
 Webbapp och installerbar PWA för luftkvalitet i Mueang Chiang Mai, Thailand. Visar officiella observationer, kompletterande lokala sensorer, historik, modellprognoser och väderkontext.
 
 **Webbplats:** [air.aberg.online](https://air.aberg.online)  
