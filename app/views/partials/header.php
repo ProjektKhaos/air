@@ -40,7 +40,7 @@ $ogImageUrl = $publicOrigin . url('fb_og.png');
     <?php if (!empty($pageStyles) && is_array($pageStyles)): foreach ($pageStyles as $stylesheet): ?>
     <link rel="stylesheet" href="<?= e(asset_url($stylesheet)) ?>">
     <?php endforeach; endif; ?>
-    <link rel="stylesheet" href="<?= e(asset_url('assets/css/app.css?layout=desktop-1')) ?>">
+    <link rel="stylesheet" href="<?= e(asset_url('assets/css/app.css?layout=desktop-2')) ?>">
     <title><?= e($pageTitle) ?></title>
 </head>
 <body data-language="<?= e($lang) ?>" data-base-url="<?= e(url()) ?>" data-default-station="<?= e((string) \ChiangMaiAirWatch\Config::get('stations.default', 'air4thai:36t')) ?>">

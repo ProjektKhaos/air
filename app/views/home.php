@@ -7,6 +7,8 @@ $primary=$dashboard['primary'];$area=$dashboard['area'];$forecast=$dashboard['fo
 <div id="data-stale-banner" class="notice notice-stale" hidden><?=e(t('common.data_stale'))?></div>
 <p id="offline-snapshot-time" class="snapshot-time" data-label="<?=e(t('common.saved_at',['time'=>'{time}']))?>" hidden></p>
 
+<div class="dashboard-layout">
+<div class="dashboard-main">
 <section class="risk-card official-area-card severity-<?=e($status)?>">
  <div class="risk-icon"><span class="material-symbols">verified</span></div>
  <div><p class="kicker"><?=e(t('home.official_area_status'))?></p><h2><?=e(t('air.status.'.$status))?><?=is_numeric($area['source_aqi']??null)?' · TH AQI '.e((string)$area['source_aqi']):''?></h2><p><?=e($area['station_name_'.locale()]??t('air.status.unknown'))?> · <?=e(t('source.air4thai'))?></p></div>
@@ -23,7 +25,9 @@ $primary=$dashboard['primary'];$area=$dashboard['area'];$forecast=$dashboard['fo
  <div class="metric-grid three"><div><span>PM2.5</span><strong id="primary-pm25"><?=e(format_pollutant($selected['pm25_ug_m3']??null))?> µg/m³</strong></div><div><span>PM10</span><strong id="primary-pm10"><?=e(format_pollutant($selected['pm10_ug_m3']??null))?> µg/m³</strong></div><div><span><?=e(t('home.change'))?></span><strong id="primary-trend"><?=e(trend_display($selected['change_1h_pm25']??null))?></strong></div></div>
  <p class="muted"><span id="primary-time"><?=e(format_local_time($selected['measured_at']??null))?></span> · <span id="primary-source"><?=e(t('source.'.($selected['provider']??'air4thai')))?></span></p>
 </section>
+</div>
 
+<aside class="dashboard-aside">
 <section class="card local-summary-card"><div class="card-heading"><div><p class="kicker"><?=e(t('home.local_network'))?></p><h2><?=e(t('source.dustboy'))?></h2></div><span class="badge badge-<?=$local['live_count']>0?'live':'offline'?>"><?=e((string)$local['live_count'].' '.t('home.sensors_online'))?></span></div>
 <div class="local-summary-grid"<?=$local['valid_pm25_count']>0?'':' hidden'?>><div><span><?=e(t('home.median_pm25'))?></span><strong><?=e(format_pollutant($local['median_pm25']))?> µg/m³</strong></div><div><span><?=e(t('home.lowest_pm25'))?></span><strong><?=e(format_pollutant($local['min_pm25']))?> µg/m³</strong></div><div><span><?=e(t('home.highest_pm25'))?></span><strong><?=e(format_pollutant($local['max_pm25']))?> µg/m³</strong></div><div><span><?=e(t('home.median_change'))?></span><strong><?=e(trend_display($local['median_change_1h']))?></strong></div></div><p class="muted local-empty"<?=$local['valid_pm25_count']>0?' hidden':''?>><?=e(t('home.local_empty'))?></p><p class="muted"><?=e(t('home.valid_pm25_sensors'))?>: <?=e((string)$local['valid_pm25_count'])?> / <?=e((string)$local['live_count'])?> · <?=e(t('home.delayed_sensors'))?>: <?=e((string)($local['delayed_count']+$local['stale_count']))?></p>
 </section>
@@ -35,4 +39,6 @@ $primary=$dashboard['primary'];$area=$dashboard['area'];$forecast=$dashboard['fo
 <section class="card context-card"><div class="card-heading"><div><p class="kicker"><?=e(t('home.weather_title'))?></p><h2><?=e(t('home.weather_attribution'))?></h2></div><span class="material-symbols weather-symbol">air</span></div><div class="weather-context-grid"<?=$weather?'':' hidden'?>><div><span><?=e(t('home.wind'))?></span><strong><?=e($weather['wind_direction_compass']??'—')?> <?=e(format_pollutant($weather['wind_speed_kmh']??null))?> km/h</strong></div><div><span><?=e(t('home.gusts'))?></span><strong><?=e(format_pollutant($weather['wind_gust_kmh']??null))?> km/h</strong></div><div><span><?=e(t('home.rain'))?></span><strong><?=e(format_pollutant($weather['precipitation_mm']??null))?> mm</strong></div><div><span><?=e(t('home.temperature'))?></span><strong><?=e(format_pollutant($weather['temperature_c']??null))?> °C</strong></div></div><p class="muted"><?=e($weather?t('common.updated',['time'=>format_local_time($weather['observed_at'])]):t('home.weather_unavailable'))?></p></section>
 
 <section class="advisory severity-<?=e($advisory['severity']??'unknown')?>"><span class="material-symbols">campaign</span><div><p class="kicker"><?=e(t('home.advisory'))?></p><h2><?=e(t('severity.'.($advisory['severity']??'unknown')))?></h2><p><?=e(t($advisory['message_key']??'advisory.unknown'))?></p></div></section>
+</aside>
+</div>
 <p class="updated"><?=e(t('common.updated',['time'=>format_local_time($dashboard['generated_at'])]))?></p>
