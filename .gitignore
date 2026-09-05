@@ -1,0 +1,36 @@
+# Dependencies are installed from committed lock files.
+/vendor/
+/node_modules/
+
+# Runtime data and generated test output.
+/storage/
+/.phpunit.cache/
+/.phpunit.result.cache
+/test-results/
+/playwright-report/
+/coverage/
+
+# Local configuration and credentials.
+.env
+.env.*
+!.env.example
+/app/config.local.php
+*.key
+*.p12
+*.pfx
+*.sql.gz
+
+# Backup/release archives and editor files.
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.bak
+*.backup
+*.log
+*.log.*
+*~
+.DS_Store
+Thumbs.db
+/.idea/
+/.vscode/

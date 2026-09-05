@@ -1,0 +1,7 @@
+-- Chiang Mai Air Watch V1.0 seed · 2026-09-02
+SET NAMES utf8mb4;
+INSERT INTO stations (provider, provider_station_code, display_name_en, display_name_th, area_en, area_th, province_en, province_th, district_en, district_th, latitude, longitude, station_type, is_primary, affects_official_status, enabled, sort_order, source_metadata_json) VALUES
+('air4thai','36t','Yupparaj Wittayalai School','โรงเรียนยุพราชวิทยาลัย','Si Phum, Mueang Chiang Mai','ต.ศรีภูมิ อ.เมืองเชียงใหม่','Chiang Mai','เชียงใหม่','Mueang Chiang Mai','เมืองเชียงใหม่',18.7909333,98.9900000,'GROUND',1,1,1,10,JSON_OBJECT('verified','2026-09-02','source_area_en','Si Phum, Meuang, Chiang Mai')),
+('air4thai','35t','Chiang Mai City Hall','ศูนย์ราชการจังหวัดเชียงใหม่','Chang Phueak, Mueang Chiang Mai','ต.ช้างเผือก อ.เมืองเชียงใหม่','Chiang Mai','เชียงใหม่','Mueang Chiang Mai','เมืองเชียงใหม่',18.8407320,98.9697800,'GROUND',0,1,1,20,JSON_OBJECT('verified','2026-09-02','source_area_en','Chang Phueak, Meuang, Chiang Mai'))
+ON DUPLICATE KEY UPDATE display_name_en=VALUES(display_name_en), display_name_th=VALUES(display_name_th), area_en=VALUES(area_en), area_th=VALUES(area_th), latitude=VALUES(latitude), longitude=VALUES(longitude), is_primary=VALUES(is_primary), sort_order=VALUES(sort_order), enabled=1;
+INSERT INTO forecast_zones (code,display_name_en,display_name_th,latitude,longitude,enabled,sort_order) VALUES ('mueang-chiang-mai','Mueang Chiang Mai','อำเภอเมืองเชียงใหม่',18.7883000,98.9853000,1,10) ON DUPLICATE KEY UPDATE latitude=VALUES(latitude),longitude=VALUES(longitude),enabled=1;

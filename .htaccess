@@ -1,0 +1,7 @@
+Options -Indexes
+RewriteEngine On
+RewriteRule ^(?:app|cron|sql|storage|tests|test-results|playwright-report|vendor|docs|config|node_modules|scripts)(?:/|$) - [F,L,NC]
+RewriteRule (^|/)\. - [F,L]
+<FilesMatch "(?i)^(composer\.(json|lock)|package(-lock)?\.json|phpunit(?:-live)?\.xml|playwright\.config\.js|.*\.(sql|md|env|ini|log|lock))$">
+ Require all denied
+</FilesMatch>
