@@ -36,19 +36,21 @@ $ogImageUrl = $publicOrigin . url('fb_og.png');
     <meta property="og:image:alt" content="Chiang Mai Air Watch — air-quality observations and model forecast">
     <script src="<?= e(asset_url('assets/js/theme-init.js')) ?>"></script>
     <link rel="manifest" href="<?= e(url('manifest.webmanifest')) ?>">
-    <link rel="icon" href="<?= e(url('assets/icons/icon.svg')) ?>" type="image/svg+xml">
+    <link rel="icon" href="<?= e(url('air_logo1.png')) ?>" type="image/png" sizes="221x221">
+    <link rel="apple-touch-icon" href="<?= e(url('air_logo1.png')) ?>">
     <?php if (!empty($pageStyles) && is_array($pageStyles)): foreach ($pageStyles as $stylesheet): ?>
     <link rel="stylesheet" href="<?= e(asset_url($stylesheet)) ?>">
     <?php endforeach; endif; ?>
-    <link rel="stylesheet" href="<?= e(asset_url('assets/css/app.css?layout=desktop-2')) ?>">
+    <link rel="stylesheet" href="<?= e(asset_url('assets/css/app.css?layout=desktop-4')) ?>">
     <title><?= e($pageTitle) ?></title>
 </head>
 <body data-language="<?= e($lang) ?>" data-base-url="<?= e(url()) ?>" data-default-station="<?= e((string) \ChiangMaiAirWatch\Config::get('stations.default', 'air4thai:36t')) ?>">
+<script src="<?= e(asset_url('assets/js/sw-update.js')) ?>"></script>
 <a class="skip-link" href="#main"><?= e(t('a11y.skip')) ?></a>
 <div class="app-shell">
     <header class="app-bar">
         <a class="brand" href="<?= e(url('?lang=' . $lang)) ?>" aria-label="<?= e(t('app.name')) ?>">
-            <span class="brand-mark" aria-hidden="true"><span class="material-symbols">air</span></span>
+            <span class="brand-mark brand-mark-logo" aria-hidden="true"><img src="<?= e(asset_url('air_logo1.png')) ?>" width="221" height="221" alt=""></span>
             <span class="brand-copy"><strong><?= e(t('app.name')) ?></strong><small><?= e(t('app.tagline')) ?></small></span>
         </a>
         <nav class="desktop-nav" aria-label="<?= e(t('a11y.primary_nav')) ?>">

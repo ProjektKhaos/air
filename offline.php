@@ -34,10 +34,11 @@ $ogImageUrl = $publicOrigin . url('fb_og.png');
     <title><?= e(t('offline.title')) ?></title>
 </head>
 <body data-language="<?= e(locale()) ?>" data-base-url="<?= e(url()) ?>" data-default-station="air4thai:36t">
+<script src="<?= e(asset_url('assets/js/sw-update.js')) ?>"></script>
 <main class="app-shell">
     <div class="main-content">
         <section class="empty-state">
-            <span class="brand-mark"><span class="material-symbols">cloud_off</span></span>
+            <span class="brand-mark brand-mark-logo" aria-hidden="true"><img src="<?= e(asset_url('air_logo1.png')) ?>" width="221" height="221" alt=""></span>
             <h1><?= e(t('offline.title')) ?></h1>
             <p class="offline-marker"><?= e(t('common.offline')) ?></p>
             <p><?= e(t('offline.body')) ?></p>
