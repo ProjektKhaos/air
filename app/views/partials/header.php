@@ -12,7 +12,7 @@ if (!is_string($requestPath) || !str_starts_with($requestPath, $basePath)) {
     $requestPath = $basePath;
 }
 $canonicalUrl = $publicOrigin . '/' . ltrim($requestPath, '/');
-$ogImageUrl = $publicOrigin . url('og-facebook.png');
+$ogImageUrl = $publicOrigin . url('fb_og.png');
 ?>
 <!doctype html>
 <html lang="<?= e($lang) ?>">
@@ -31,8 +31,8 @@ $ogImageUrl = $publicOrigin . url('og-facebook.png');
     <meta property="og:image" content="<?= e($ogImageUrl) ?>">
     <meta property="og:image:secure_url" content="<?= e($ogImageUrl) ?>">
     <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
+    <meta property="og:image:width" content="1731">
+    <meta property="og:image:height" content="909">
     <meta property="og:image:alt" content="Chiang Mai Air Watch — air-quality observations and model forecast">
     <script src="<?= e(asset_url('assets/js/theme-init.js')) ?>"></script>
     <link rel="manifest" href="<?= e(url('manifest.webmanifest')) ?>">
