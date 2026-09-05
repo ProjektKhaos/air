@@ -181,4 +181,6 @@ DustBoy-historiken för stationerna `5263` och `5264` var ännu ofullständig vi
 
 ## Licens
 
-Projektets Composer-metadata anger `proprietary`. Ingen öppen källkodslicens har tilldelats projektet. Tredjepartsbibliotek och datakällor omfattas av sina respektive licenser och användningsvillkor.
+Copyright © 2026 Hans Åberg. Projektet distribueras under [MIT-licensen](LICENSE).
+
+Tredjepartsbibliotek och externa datakällor omfattas fortsatt av sina respektive licenser och användningsvillkor.
